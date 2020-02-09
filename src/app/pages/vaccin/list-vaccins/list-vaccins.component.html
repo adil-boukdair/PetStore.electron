@@ -1,0 +1,54 @@
+<div fxLayout="row" *ngIf="vaccins!=0">
+  <div fxFlex="50"> <h1  class="s-title">Prochain vaccins</h1> </div>
+  <div fxFlex="50" style="text-align:right;">
+   </div>
+ </div>
+
+
+ <mat-card *ngIf="vaccins!=0">   
+ 
+ <div class="list-vaccins" >
+  <table style="width:100%"  >
+    <tr>
+      <th></th>
+      <th>Date prévu</th>
+      <th>Description</th>
+      <th>Nom Animal</th>
+      <th>Nom Proprietaire</th>
+      <th>Téléphone</th> 
+    </tr>
+
+    <tr *ngFor="let row of vaccins | sortBy: 'row.vaccin.nextVaccinDate' " style="border-top: 1px solid black;">
+      <td>
+        <button mat-icon-button color="primary"  (click)="makeInvisible(row.vaccin)">
+        <mat-icon>visibility_on</mat-icon>
+       </button>
+  </td>
+      <td align="center">{{row.vaccin.nextVaccinDate | date:'dd/MM/yyyy'}}</td>
+      <td align="center">{{row.vaccin.desc}}</td>
+      <td align="center">
+         {{row.pet.name}} 
+        <button mat-icon-button color="primary" [routerLink]="['/info-pet',row.pet._id]">
+          <mat-icon>search</mat-icon>
+      </button>
+      </td>
+      <td align="center">
+        {{row.customer.lastName}} {{row.customer.firstName}}
+      <button mat-icon-button color="primary" [routerLink]="['/info-customer',row.customer._id]">
+          <mat-icon>search</mat-icon>
+      </button>
+      </td>
+      <td align="center">{{row.customer.phone}}</td>
+    </tr>
+  </table>
+
+ </div>
+</mat-card>
+
+<div class="noOverdueVaccinsFound" style="text-align: center;color:rgb(187, 164, 164);" *ngIf="vaccins==0">
+  <h1>Aucun prochain vaccins prévu</h1>
+  <div>
+      <mat-icon style="font-size:70px">sentiment_neutral</mat-icon>
+  </div>
+   
+</div>

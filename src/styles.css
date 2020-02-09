@@ -1,1 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+body{
+  margin:0px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #eee;
+}
+
+.s-title{
+  margin-bottom: 0px;
+  font-weight: 500;
+  color: #4f4f4f!important;
+  margin-top: 0px;
+}
+/*loading Material icons*/
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./app/font/angular-material-font.woff2') format('woff2');
+  }
+
+  .my-toolbar {
+    position: fixed;
+    top: 0;
+    z-index:2;
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .fill-space {
+    flex: 1 1 auto;
+  }
+
+  .container{
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  /**/
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    margin-left:50px;
+    margin-right:50px;
+  }
+  
+  .form-container > * {
+    width: 100%;
+  }
+
+  .example-header-image{
+    background-image: url('./assets/user.png');
+    background-size: cover;
+}
+.pet-header-image{
+    background-image: url('./assets/cat.png');
+    background-size: cover;
+}
+
+
+.pet-area{
+    padding-top:10px;
+}
+
+.animal-list{
+    padding-top:10px;
+    text-align: center;
+    padding-left: 100px;
+}

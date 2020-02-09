@@ -1,0 +1,74 @@
+<div fxLayout="row" >
+    <div fxFlex="50"> <h1  class="s-title">Fiche Animal de compagnie</h1> </div>
+    <div fxFlex="50" style="text-align:right;">
+        <button mat-icon-button [routerLink]="['/info-customer',pet.customerID]">
+            <mat-icon>keyboard_return</mat-icon>
+          </button>
+     </div>
+   </div>
+
+ 
+<div class="customer-area">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="pet-header-image"></div>
+    <mat-card-title><strong>{{pet.name}}</strong></mat-card-title>
+    <mat-card-subtitle>{{pet.type}} </mat-card-subtitle>
+ 
+  </mat-card-header>
+  <mat-divider *ngIf="vaccins!=0"></mat-divider>
+  <mat-card-content>
+
+ 
+   
+      <div class="animal-list">
+          <h3 *ngIf="vaccins!=0">List Vaccins</h3>
+        <table *ngIf="vaccins!=0" >
+            <tr>
+                <th></th>
+                <th><strong>Description</strong></th>
+                <th><strong>Date Vaccin</strong></th>
+                <th><strong>Date Prochain Vaccin</strong></th>
+                <th></th>
+              </tr>
+
+          <tr  *ngFor="let vaccin of vaccins">
+            <td>
+                <button mat-icon-button color="primary" [routerLink]="['/edit-vaccin',vaccin._id]">
+                    <mat-icon>mode_edit</mat-icon>
+                </button>
+            </td>
+            <td>{{vaccin.desc}}</td>
+            <td>{{vaccin.date| date:'fullDate'}}</td>
+            <td>{{vaccin.nextVaccinDate| date:'fullDate'}}</td>
+            <td>
+                <button mat-icon-button color="primary"  (click)="visibleInvisible(vaccin)" *ngIf="vaccin.show==true">
+                    <mat-icon>visibility_on</mat-icon>
+                </button>
+                <button mat-icon-button color="warn"  (click)="visibleInvisible(vaccin)" *ngIf="vaccin.show==false">
+                    <mat-icon>visibility_off</mat-icon>
+                </button>
+              </td>
+          </tr>
+        </table>
+
+      </div>
+   
+
+    </mat-card-content>
+    <mat-divider></mat-divider>
+  <mat-card-actions >
+      <button mat-icon-button color="warn" (click)="openDialog()">
+          <mat-icon>delete_forever</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [routerLink]="['/edit-pet',pet._id]">
+          <mat-icon>mode_edit</mat-icon>
+      </button>
+      <div fxFlex></div>
+      <button mat-raised-button color="accent" [routerLink]="['/add-vaccin',pet._id]">Ajouter Vaccin</button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+ 
+ 

@@ -1,0 +1,55 @@
+<div fxLayout="row" >
+    <div fxFlex="50"> <h1  class="s-title">Fiche Client</h1> </div>
+    <div fxFlex="50" style="text-align:right;">
+        <button mat-icon-button [routerLink]="['/list-customers']">
+          <mat-icon>keyboard_return</mat-icon>
+        </button>
+     </div>
+   </div>
+
+
+<div class="customer-area">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><strong>{{customer.lastName}} {{customer.firstName}}</strong></mat-card-title>
+    <mat-card-subtitle>Tél: {{customer.phone}} Fix: {{customer.phoneLand}}</mat-card-subtitle>
+    <mat-card-subtitle>Date Creation: {{customer.created|date:'fullDate'}} </mat-card-subtitle>
+    <mat-card-subtitle>Date Modification: {{customer.modified|date:'fullDate'}} </mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider *ngIf="pets!=0"></mat-divider>
+  <mat-card-content>
+     
+      <div class="animal-list">
+        <h3 *ngIf="pets!=0">List des animaux de compagnie</h3>
+        <table>
+          <tr  *ngFor="let pet of pets">
+            <td>
+                <button mat-icon-button color="primary" [routerLink]="['/info-pet',pet._id]">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </td>
+            <td><div mat-card-avatar class="pet-header-image"></div></td>
+            <td><strong>{{pet.name}}</strong></td>
+            <td>{{pet.type}}</td>
+          </tr>
+        </table>
+
+      </div> 
+
+    </mat-card-content>
+    <mat-divider></mat-divider>
+  <mat-card-actions >
+      <button mat-icon-button color="warn" (click)="openDialog()">
+          <mat-icon>delete_forever</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" [routerLink]="['/edit-customer',customer._id]">
+          <mat-icon>mode_edit</mat-icon>
+      </button>
+      <div fxFlex></div>
+      <button mat-raised-button color="accent" [routerLink]="['/add-pet',customer._id]">Ajouter Animal de compagnie <mat-icon>pets</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+ 

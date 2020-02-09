@@ -1,0 +1,43 @@
+<div fxLayout="row" >
+  <div fxFlex="50"> <h1  class="mat-display-1 s-title">Modifier Client</h1> </div>
+  <div fxFlex="50" style="text-align:right;">
+   
+   </div>
+ </div>
+
+<mat-card>
+<div class="form-container">
+
+  <mat-form-field >
+      <mat-label>Code Client</mat-label>
+      <input matInput placeholder="QR12234" [(ngModel)]="customer.customerCode" required>
+  </mat-form-field>
+
+  <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Idrissi" [(ngModel)]="customer.lastName" required>
+  </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Leila" [(ngModel)]="customer.firstName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tél</mat-label>
+        <input matInput type="text" pattern="[0-9]*" placeholder="0669694455" [(ngModel)]="customer.phone" required>
+   </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Tél</mat-label>
+    <input matInput type="text" pattern="[0-9]*" placeholder="0555112233" [(ngModel)]="customer.phoneLand" required>
+</mat-form-field>
+
+
+      <div fxLayout="row" style="margin-top:30px;">
+        <div fxFlex="50"><button mat-raised-button [routerLink]="['/info-customer',customer._id]">Annuler</button></div>
+        <div fxFlex="50" style="text-align:right"><button mat-raised-button color="primary" (click)="editCustomer()">Modifier</button></div>
+      </div>
+</div>
+
+</mat-card>

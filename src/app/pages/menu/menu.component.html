@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="mat-elevation-z4 my-toolbar">    
+  <mat-toolbar-row>
+    <img src="./assets/logo-icon.png" width="55">
+    <button [routerLink]="['/list-customers']" mat-button color="default" style="font-weight: bold;">Clients</button>
+    <button mat-button color="default" style="font-weight: bold;" [routerLink]="['/list-vaccins']">Vaccins</button>
+
+    <span class="fill-space"></span>
+    <div class="right-icons">
+      <h2>Rahmani<span style="color:#AED45B;">Vet</span></h2>
+      <!--
+        <button mat-icon-button color="default">
+            <mat-icon >search</mat-icon>
+          </button>
+        -->
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

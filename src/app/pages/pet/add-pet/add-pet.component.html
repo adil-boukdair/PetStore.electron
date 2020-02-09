@@ -1,0 +1,27 @@
+<div fxLayout="row" >
+    <div fxFlex="100"> <h1  class="mat-display-1 s-title">Ajouter Animal de compagnie de {{customer.firstName}} {{customer.lastName}}</h1> </div>
+     
+   </div>
+
+   <mat-card>
+<div class="form-container">
+    <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Boby" [(ngModel)]="pet.name" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <input matInput placeholder="Chien, ou Chat ..."  [(ngModel)]="pet.type" required>
+      </mat-form-field>
+     
+     
+
+
+
+        <div fxLayout="row" style="margin-top:30px;">
+          <div fxFlex="50"><button mat-raised-button [routerLink]="['/info-customer',pet.customerID]">Annuler</button></div>
+          <div fxFlex="50" style="text-align:right"><button mat-raised-button color="accent" (click)="addPet()">Ajouter</button></div>
+        </div>
+</div>
+</mat-card>

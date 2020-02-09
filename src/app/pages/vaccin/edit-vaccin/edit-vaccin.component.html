@@ -1,0 +1,30 @@
+<div fxLayout="row" >
+    <div fxFlex="50"> <h1  class="mat-display-1 s-title">Modifier Vaccin </h1> </div>
+    <div fxFlex="50" style="text-align:right;">
+        <button mat-icon-button [routerLink]="['/info-pet',vaccin.petID]">
+          <mat-icon>keyboard_return</mat-icon>
+        </button>
+     </div>
+   </div>
+
+<mat-card>   
+<div class="form-container">
+
+    <mat-form-field >
+        <mat-label>Description Du Vaccin</mat-label>
+        <input matInput placeholder="Vaccin annuel" [(ngModel)]="vaccin.desc" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput  [min]="startDate" [matDatepicker]="picker" placeholder="Date du prochain vaccin"  (dateChange)="addEvent('change', $event)" [(ngModel)]="vaccin.nextVaccinDate"> 
+        <mat-datepicker-toggle matSuffix [for]="picker"  ></mat-datepicker-toggle>
+        <mat-datepicker #picker [startAt]="startDate" disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+
+        <div fxLayout="row" style="margin-top:30px;">
+          <div fxFlex="50"><button mat-raised-button [routerLink]="['/info-pet',vaccin.petID]">Annuler</button></div>
+          <div fxFlex="50" style="text-align:right"><button mat-raised-button color="primary" (click)="editVaccin()">Modifier</button></div>
+        </div>
+</div>
+</mat-card>
